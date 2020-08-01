@@ -8,7 +8,7 @@ interface ColorBoxInputProps {
 }
 
 const ColorBoxInput: React.FC<ColorBoxInputProps> = ({ onChangeColor }) => {
-  const [inputValue, setInputValue] = useState("#2e4779");
+  const [inputValue, setInputValue] = useState("#9013fe");
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handleCurrentColor = useCallback(

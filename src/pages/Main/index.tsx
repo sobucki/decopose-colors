@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { parseToHsl, hsl } from "polished";
-import { Container, Content } from "./styles";
+import { Container, Header, Content } from "./styles";
 import ColorBox from "../../components/ColorBox";
 import ColorBoxInput from "../../components/ColorBoxInput";
 
 const Main: React.FC = () => {
-  const [currentColor, setCurrentColor] = useState("#2e4779");
+  const [currentColor, setCurrentColor] = useState("#9013fe");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberOfColors, setNumberOfColors] = useState(12);
 
   const [half, setHalf] = useState(Math.ceil(numberOfColors / 2));
@@ -13,7 +14,7 @@ const Main: React.FC = () => {
   const [colors, setColors] = useState<string[]>([]);
 
   useEffect(() => {
-    setColors(Array<string>(numberOfColors).fill("#2e4779"));
+    setColors(Array<string>(numberOfColors).fill("#9013fe"));
     setHalf(Math.ceil(numberOfColors / 2));
   }, [numberOfColors]);
 
@@ -60,6 +61,7 @@ const Main: React.FC = () => {
     },
     [numberOfColors]
   );
+
   useEffect(() => {
     try {
       const { hue, lightness, saturation } = parseToHsl(currentColor);
@@ -67,14 +69,24 @@ const Main: React.FC = () => {
       updateColors(hue, lightness, saturation);
     } catch (error) {}
   }, [updateColors, currentColor, numberOfColors]);
+
+  const leftColors = useMemo(() => {
+    return colors.slice(0, half);
+  }, [colors, half]);
+
+  const rightColors = useMemo(() => {
+    return colors.slice(half, colors.length);
+  }, [colors, half]);
+
   return (
     <Container>
+      <Header>
+        <h1>Decompose Colors</h1>
+      </Header>
       <Content>
-        {colors.map((col, index) => {
-          if (index < half) {
-            return <ColorBox colorInput={col} />;
-          }
-        })}
+        {leftColors.map((col, index) => (
+          <ColorBox colorInput={col} />
+        ))}
 
         <ColorBoxInput
           onChangeColor={(color) => {
@@ -82,11 +94,9 @@ const Main: React.FC = () => {
           }}
         />
 
-        {colors.map((col, index) => {
-          if (index >= half) {
-            return <ColorBox colorInput={col} />;
-          }
-        })}
+        {rightColors.map((col, index) => (
+          <ColorBox colorInput={col} />
+        ))}
       </Content>
     </Container>
   );

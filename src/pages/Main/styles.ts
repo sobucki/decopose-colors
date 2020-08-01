@@ -11,9 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-
+export const Header = styled.header`
   margin-top: 64px;
 
   h1 {
@@ -35,7 +33,7 @@ export const Content = styled.section`
   /* height: 100%; */
   margin-top: 64px;
   width: 100%;
-  flex: 1;
+  /* flex: 1; */
   max-width: 1500px;
   display: flex;
   /* background-color: red; */
@@ -44,16 +42,4 @@ export const Content = styled.section`
   justify-content: space-around;
 `;
 
-export const BoxInput = styled.div`
-  width: 200px;
-  > div {
-    width: 200px;
-    height: 200px;
-  }
-  input {
-    height: 19px;
-    text-align: center;
-  }
-  display: flex;
-  flex-direction: column;
-`;
+export const OutputBox = styled.div``;

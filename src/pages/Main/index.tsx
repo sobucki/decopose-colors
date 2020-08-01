@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { parseToHsl, hsl } from "polished";
 import { Container, Header, Content } from "./styles";
+
 import ColorBox from "../../components/ColorBox";
 import ColorBoxInput from "../../components/ColorBoxInput";
+import OutputBox from "../../components/OutputBox";
 
 const Main: React.FC = () => {
   const [currentColor, setCurrentColor] = useState("#9013fe");
@@ -70,11 +72,11 @@ const Main: React.FC = () => {
     } catch (error) {}
   }, [updateColors, currentColor, numberOfColors]);
 
-  const leftColors = useMemo(() => {
+  const lightColors = useMemo(() => {
     return colors.slice(0, half);
   }, [colors, half]);
 
-  const rightColors = useMemo(() => {
+  const darkColors = useMemo(() => {
     return colors.slice(half, colors.length);
   }, [colors, half]);
 
@@ -84,8 +86,8 @@ const Main: React.FC = () => {
         <h1>Decompose Colors</h1>
       </Header>
       <Content>
-        {leftColors.map((col, index) => (
-          <ColorBox colorInput={col} />
+        {lightColors.map((col, index) => (
+          <ColorBox colorInput={col} key={col} />
         ))}
 
         <ColorBoxInput
@@ -94,10 +96,15 @@ const Main: React.FC = () => {
           }}
         />
 
-        {rightColors.map((col, index) => (
-          <ColorBox colorInput={col} />
+        {darkColors.map((col, index) => (
+          <ColorBox colorInput={col} key={col} />
         ))}
       </Content>
+      <OutputBox
+        baseColor={currentColor}
+        darkColors={darkColors}
+        lightColors={lightColors}
+      />
     </Container>
   );
 };

@@ -35,7 +35,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 ```bash
 # Clone do repositório
-$ git clone https://github.com/sobucki/decopose-colors.git
+$ git clone https://github.com/sobucki/decompose-colors.git
 
 # Entrar no repositório
 $ cd decompose-colors

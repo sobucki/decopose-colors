@@ -3,16 +3,16 @@
 </h1>
 
 <h2>
-<a href="https://decompose-colors.netlify.app/">Acesse a demonstração</a>
+<a href="https://decompose-colors.netlify.app/" target="_blank">Acesse a demonstração</a>
 </h2>
 
 ---
 
 # Índice
 
-- [Sobre](#-sobre)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [Como baixar o projeto](#-como-baixar-o-projeto)
+- [Sobre](#%EF%B8%8F-sobre)
+- [Tecnologias utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
+- [Como baixar o projeto](#%EF%B8%8F-como-baixar-o-projeto)
 
 ## 📖️ Sobre
 

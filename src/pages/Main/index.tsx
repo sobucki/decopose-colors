@@ -87,7 +87,7 @@ const Main: React.FC = () => {
       </Header>
       <Content>
         {lightColors.map((col, index) => (
-          <ColorBox colorInput={col} key={col} />
+          <ColorBox colorInput={col} key={index} />
         ))}
 
         <ColorBoxInput
@@ -97,7 +97,7 @@ const Main: React.FC = () => {
         />
 
         {darkColors.map((col, index) => (
-          <ColorBox colorInput={col} key={col} />
+          <ColorBox colorInput={col} key={index} />
         ))}
       </Content>
       <OutputBox

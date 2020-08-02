@@ -16,7 +16,7 @@ const OutputBox: React.FC<OutputBoxProps> = ({
   return (
     <Container>
       {lightColors.map((color, index) => (
-        <p key={color}>
+        <p key={index}>
           <strong>{`light-${lightColors.length - index}: `}</strong>
           <span>{`"${color}"`}</span>
         </p>
@@ -28,7 +28,7 @@ const OutputBox: React.FC<OutputBoxProps> = ({
         </p>
       }
       {darkColors.map((color, index) => (
-        <p key={color}>
+        <p key={index}>
           <strong>{`dark-${index + 1}: `}</strong>
           <span>{`"${color}"`}</span>
         </p>
